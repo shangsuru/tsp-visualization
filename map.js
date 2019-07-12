@@ -31,8 +31,6 @@ function drawPoints() {
   }
 }
 
-// TSP solve implementation#####################################################
-
 function distance(pointA, pointB) {
   return Math.sqrt(
     Math.pow(pointA.xPos - pointB.xPos, 2) +
@@ -42,20 +40,9 @@ function distance(pointA, pointB) {
 
 function solve() {
   let available = points.copy();
-  //console.log(points.toString())
-  //console.log(available.toString())
-  //console.log(distanceMap)
   let start = available.pop();
   let sol = new LinkedList();
   sol.insert(start);
-  /*
-    console.log("distMap:")
-    for(var i = 0; i < points.size; i++){
-        for(var j = 0; j < points.size; j++){
-            console.log(distanceMap[points.get(i)][points.get(j)])
-        }
-    }
-    */
   dist = Number.MAX_VALUE;
   backtrackRec(sol, available, 0);
 }
